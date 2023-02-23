@@ -1,9 +1,7 @@
-import 'package:daily_004_flutter/theme/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_004_flutter/screens/home/components/calculator_button.dart';
 import 'package:daily_004_flutter/screens/home/components/display_text.dart';
 import 'package:daily_004_flutter/screens/home/components/background.dart';
-import 'dart:developer';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -118,12 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            UrbanistText(
-              commands
-                  .map((c) => "$c<${c.runtimeType.toString()}> ")
-                  .toString(),
-              variant: UrbanistTextVariants.bodyLG,
-            ),
             DisplayText(text: getDisplayText()),
             CalculatorButtonsContainer(paddingBottom: paddingBottom, children: [
               for (var row in buttons)
@@ -218,8 +210,7 @@ toNum(dynamic item) {
       return double.parse(item.replaceAll(",", '.'));
     }
   } catch (ex) {
-    log(ex.toString());
-    log(item.toString());
+    //
   }
   return item;
 }
